@@ -1,6 +1,6 @@
 """Test cases for the main application commands using Typer's CLI runner."""
 
-from theproject.main import app
+from theproject.cli import app
 from typer.testing import CliRunner
 
 runner = CliRunner()
