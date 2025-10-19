@@ -1,4 +1,4 @@
-# pyproject
+# projectname
 
 This is a Opinionated GitHub Repository Template with the following:
 
@@ -25,12 +25,7 @@ This is a Opinionated GitHub Repository Template with the following:
 
 ### Renaming
 
-```sh
-# Replace any text containing "theproject" with "yourproject" and "hasansezertasan" with "yourname"
-LC_ALL=C find . -type f -exec sed -i '' 's/theproject/yourproject/g; s/hasansezertasan/yourname/g' {} +
-# Rename any file or directory containing "theproject" with "yourproject"
-find . -name '*theproject*' -exec bash -c 'for f; do mv "$f" "${f//theproject/yourproject}"; done' _ {} +
-```
+Well, rename the project name and author name.
 
 ### Customizing
 
@@ -90,12 +85,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <!-- Refs -->
 [author]: https://github.com/hasansezertasan
-[theproject]: https://github.com/hasansezertasan/theproject
-[hatchling]: https://hatch.pypa.io/latest/
-[uv]: https://docs.astral.sh/uv/
-[pytest]: https://docs.pytest.org/en/stable/
-[tox]: https://tox.wiki/en/latest/
-[ruff]: https://docs.astral.sh/ruff/
-[mypy]: https://mypy.readthedocs.io/en/stable/
-[typer]: https://typer.tiangolo.com/
-[pre-commit]: https://pre-commit.com/

@@ -12,7 +12,7 @@
             "module": "uv",
             "args": [
                 "run",
-                "theproject",
+                "projectname",
                 "${input:args}"
             ]
         }

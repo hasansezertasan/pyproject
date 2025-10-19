@@ -23,11 +23,9 @@ exclude: |
     |alembic
   )$
 default_language_version:
-  python: python3.9
+  python: python3.10
 default_stages: [pre-commit, pre-push]
 repos:
-  # https://github.com/pre-commit/pre-commit-hooks#pre-commit-hooks
-  # https://github.com/pre-commit/pre-commit-hooks#pre-commit-hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -49,13 +47,22 @@ repos:
         name: Trailing whitespace
       - id: debug-statements
         name: Debug Statements
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.8.3
+    hooks:
+      - id: commitizen
+        name: Commitizen
+      - id: commitizen-branch
+        name: Commitizen Branch
+        stages:
+          - push
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.8.8
+    rev: 0.9.3
     hooks:
       - id: uv-lock
         name: Update the uv lockfile
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.8
+    rev: v0.14.1
     hooks:
       - id: ruff
         name: Ruff Linter

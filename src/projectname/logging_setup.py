@@ -1,30 +1,32 @@
-"""Set up logging for the theproject application.
+"""Set up logging for the projectname application.
 
-This module configures logging for the theproject application, ensuring that
+This module configures logging for the projectname application, ensuring that
 log handlers are only added once to prevent duplicate log entries if the
 module is imported multiple times.
 
 Attributes:
-    logger (logging.Logger): The main logger for the theproject application.
+    logger (logging.Logger): The main logger for the projectname application.
+
 """
 
 import logging
 import sys
 from logging.handlers import RotatingFileHandler
 
-from theproject.config import DEFAULT_USER_HOME_CACHE_PATH, log_file_path
+from projectname.config import DEFAULT_USER_HOME_CACHE_PATH, log_file_path
 
 
 def setup_logger() -> logging.Logger:
-    """Set up and return the main logger for the theproject application.
+    """Set up and return the main logger for the projectname application.
 
     Ensures that handlers are only added once to avoid duplicate log entries
     if this module is imported multiple times.
 
     Returns:
-        logging.Logger: Configured logger for the theproject application.
+        logging.Logger: Configured logger for the projectname application.
+
     """
-    logger_ = logging.getLogger("theproject")
+    logger_ = logging.getLogger("projectname")
     logger_.setLevel(logging.INFO)
 
     # Only add handlers if they haven't been added yet
@@ -57,4 +59,4 @@ def setup_logger() -> logging.Logger:
 
 
 logger: logging.Logger = setup_logger()
-"""The main logger for the theproject application."""
+"""The main logger for the projectname application."""

@@ -2,7 +2,7 @@
 
 from typer.testing import CliRunner
 
-from theproject.cli import app
+from projectname.cli import app
 
 runner = CliRunner()
 

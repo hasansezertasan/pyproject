@@ -1,1 +1,1 @@
-"""Contain the tests for the theproject application."""
+"""Contain the tests for the projectname application."""
