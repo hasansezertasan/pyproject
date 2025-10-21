@@ -4,10 +4,11 @@
 from __future__ import annotations
 
 import platform
-from importlib.metadata import version
+from importlib.metadata import Distribution
 
 import typer
 
+from projectname.config import PROJECT_NAME
 from projectname.logging_setup import logger
 
 app = typer.Typer(
@@ -26,8 +27,9 @@ def show_version() -> None:
     Example output:
         0.1.0
     """
+    distribution = Distribution.from_name(PROJECT_NAME)
     logger.info("Command `version` called.")
-    typer.echo(version("projectname"))
+    typer.echo(distribution.version)
     logger.info("Version displayed successfully.")
 
 
@@ -43,10 +45,11 @@ def info() -> None:
         Python Version: 3.8.20 (CPython)
         Platform: Darwin
     """
+    distribution = Distribution.from_name(PROJECT_NAME)
     logger.info("Command `info` called.")
     python_version = platform.python_version()
     python_implementation = platform.python_implementation()
-    typer.echo(f"Application Version: {version('projectname')}")
+    typer.echo(f"Application Version: {distribution.version}")
     typer.echo(f"Python Version: {python_version} ({python_implementation})")
     typer.echo(f"Platform: {platform.system()}")
     logger.info("Application information displayed successfully.")

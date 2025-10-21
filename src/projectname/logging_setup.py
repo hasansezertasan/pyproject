@@ -13,30 +13,29 @@ import logging
 import sys
 from logging.handlers import RotatingFileHandler
 
-from projectname.config import DEFAULT_USER_HOME_CACHE_PATH, log_file_path
+from projectname.config import ROOT_FOLDER_PATH, LOG_FILE_PATH, PROJECT_NAME
 
 
 def setup_logger() -> logging.Logger:
-    """Set up and return the main logger for the projectname application.
+    """Set up and return the main logger for the keycast application.
 
     Ensures that handlers are only added once to avoid duplicate log entries
     if this module is imported multiple times.
 
     Returns:
-        logging.Logger: Configured logger for the projectname application.
-
+        logging.Logger: Configured logger for the keycast application.
     """
-    logger_ = logging.getLogger("projectname")
+    logger_ = logging.getLogger(PROJECT_NAME)
     logger_.setLevel(logging.INFO)
 
     # Only add handlers if they haven't been added yet
     if not logger_.handlers:
         # Ensure the log file exists
-        DEFAULT_USER_HOME_CACHE_PATH.mkdir(parents=True, exist_ok=True)
+        ROOT_FOLDER_PATH.mkdir(parents=True, exist_ok=True)
 
         # Create a file handler that logs all messages
         file_handler = RotatingFileHandler(
-            log_file_path, maxBytes=10 * 1024 * 1024, backupCount=5
+            LOG_FILE_PATH, maxBytes=10 * 1024 * 1024, backupCount=5
         )
         file_handler.setLevel(logging.INFO)
 

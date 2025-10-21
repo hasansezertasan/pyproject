@@ -62,34 +62,38 @@ projectname = "projectname.cli:app"
 [dependency-groups]
 dev = [
   "projectname[cli]",
-  "tox>=4.25.0",
-  "tox-uv>=1.13.1",
+  "tox==4.31.0",
+  "tox-uv==1.29.0",
   { include-group = "lint" },
   { include-group = "test" },
   { include-group = "tool" },
 ]
 lint = [
-  "mypy>=1.18.2",
-  "pyright>=1.1.406",
+  "mypy==1.18.2",
+  "pyright==1.1.406",
   "ty==0.0.1a23",
-  "pyrefly==0.37.0",
-  "ruff>=0.14.1",
-  "taplo>=0.9.3",
-  "typos>=1.38.1",
-  "validate-pyproject[all]>=0.24.1",
-  "vulture>=2.14",
-  "slotscheck>=0.19.1",
+  "pyrefly==0.38.1",
+  "ruff==0.14.1",
+  "taplo==0.9.3",
+  "typos==1.38.1",
+  "validate-pyproject[all]==0.24.1",
+  "vulture==2.14",
+  "slotscheck==0.19.1",
 ]
 test = [
   "coverage-enable-subprocess==1.0",
-  "coverage[toml]~=7.4",
-  "pytest-dependency>=0.6.0",
-  "pytest-mock~=3.12",
-  "pytest-rerunfailures~=14.0",
-  "pytest-xdist[psutil]~=3.5",
+  "coverage[toml]==7.4",
+  "pytest-dependency==0.6.0",
+  "pytest-mock==3.12",
+  "pytest-rerunfailures==16.1",
+  "pytest-xdist[psutil]==3.5",
   "pytest==8.4.2",
 ]
-tool = ["poethepoet==0.37.0", "pre-commit==4.3.0", "commitizen==4.9.1"]
+tool = [
+  "pre-commit==4.3.0",
+  "poethepoet==0.37.0",
+  "commitizen==4.9.1",
+]
 
 
 [tool.uv]
@@ -98,6 +102,7 @@ cache-keys = [
   { git = { commit = true, tags = true } },
 ]
 trusted-publishing = "always"
+add-bounds = "exact"
 
 
 [build-system]
@@ -118,7 +123,7 @@ hooks.vcs.version-file = "src/projectname/_version.py"
 version_scheme = "only-version"
 local_scheme = "no-local-version"
 
-
+# TODO @hasansezertasan: Commitizen should be optional.
 [tool.commitizen]
 name = "cz_conventional_commits"
 version_provider = "scm"
@@ -192,18 +197,6 @@ preview = true
 select = ["ALL"]
 
 
-[tool.ruff.lint.per-file-ignores]
-"tests/*.py" = ['S101']
-
-
-[tool.ruff.lint.pyupgrade]
-keep-runtime-typing = true
-
-
-[tool.ruff.lint.pycodestyle]
-ignore-overlong-task-comments = true
-
-
 # TODO @hasansezertasan: Update the author name and email
 [tool.ruff.lint.flake8-copyright]
 author = "Hasan Sezer Taşan <hasansezertasan@gmail.com>"
@@ -213,16 +206,28 @@ author = "Hasan Sezer Taşan <hasansezertasan@gmail.com>"
 ban-relative-imports = "all"
 
 
+[tool.ruff.lint.mccabe]
+max-complexity = 5
+
+
+[tool.ruff.lint.pycodestyle]
+ignore-overlong-task-comments = true
+
+
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"
 
 
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = ['S101']
+
+
+[tool.ruff.lint.pyupgrade]
+keep-runtime-typing = true
+
+
 [tool.ruff.lint.ruff]
 parenthesize-tuple-in-subscript = true
-
-
-[tool.ruff.lint.mccabe]
-max-complexity = 5
 
 
 [tool.mypy]
@@ -255,6 +260,7 @@ python-version = "3.10"
 project-includes = ["src"]
 
 
+# TODO @hasansezertasan: poethepoet should be optional.
 [tool.poe]
 executor.type = "uv"
 
@@ -326,6 +332,7 @@ description = "Run Linters and Formatters"
 allowlist_externals = ["actionlint", "yamlfmt"]
 
 
+# TODO @hasansezertasan: This should be available if the project is a CLI project.
 [tool.tox.env.run]
 commands = [["projectname", "version", { replace = "posargs", extend = true }]]
 description = "Run the application"

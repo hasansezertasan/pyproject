@@ -2,9 +2,13 @@
 
 from pathlib import Path
 
-ROOT_FOLDER_NAME = ".projectname"
-DEFAULT_USER_HOME_CACHE_PATH = Path.home() / ROOT_FOLDER_NAME
-"""Path to the user home cache path."""
-
-log_file_path: Path = DEFAULT_USER_HOME_CACHE_PATH / "projectname.log"
+PROJECT_NAME: str = "projectname"
+"""Name of the project."""
+ROOT_FOLDER_NAME: str = f".{PROJECT_NAME}"
+"""Name of the root folder."""
+ROOT_FOLDER_PATH: Path = Path.home() / ROOT_FOLDER_NAME
+"""Path to the root folder."""
+LOG_FILE_PATH: Path = ROOT_FOLDER_PATH / "main.log"
 """Path to the log file."""
+CONFIG_FILE_PATH: Path = ROOT_FOLDER_PATH / "config.json"
+"""Path to the config file."""
