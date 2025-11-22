@@ -1,6 +1,6 @@
 # copier-pyproject
 
-This is a Opinionated GitHub Repository Template with the following:
+This is an Opinionated GitHub Repository Template with the following:
 
 - `uv` package manager support.
 - Build with `hatchling`, dynamic versioning through GitHub Release Tags.
