@@ -1,4 +1,4 @@
-# projectname
+# copier-pyproject
 
 This is a Opinionated GitHub Repository Template with the following:
 
@@ -23,18 +23,8 @@ This is a Opinionated GitHub Repository Template with the following:
 
 ## Usage
 
-### Renaming
-
-Well, rename the project name and author name.
-
 ### Customizing
 
-- [ ] [Rename](#renaming) the project name and author.
-- [ ] Go ahead and update the [LICENSE](LICENSE) with your preferred license.
-- [ ] Go ahead and update the [CONTRIBUTING.md](CONTRIBUTING.md) with your preferred contribution guidelines.
-- [ ] Go ahead and update the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) with your preferred code of conduct.
-- [ ] Go ahead and update the [README_ACTUAL.md](README_ACTUAL.md) with your own project details.
-- [ ] Go ahead and update the [CHANGELOG.md](CHANGELOG.md) with your preferred changelog format.
 - [ ] Go ahead and update the [pyproject.toml](pyproject.toml) with your own project details. Make sure you have completed all TODOs.
 - [ ] Double check the [.gitignore](.gitignore) file and don't stage any secrets!
 - [ ] Go ahead and update your repository settings as you wish.
