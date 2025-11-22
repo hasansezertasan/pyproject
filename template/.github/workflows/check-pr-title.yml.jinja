@@ -29,10 +29,10 @@ jobs:
             Details:
 
             ```
-            ${{ steps.lint_pr_title.outputs.error_message }}
+            {% raw %}${{ steps.lint_pr_title.outputs.error_message }}{% endraw %}
             ```
       # Delete a previous comment when the issue has been resolved
-      - if: ${{ steps.lint_pr_title.outputs.error_message == null }}
+      - if: {% raw %}${{ steps.lint_pr_title.outputs.error_message == null }}{% endraw %}
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: pr-title-lint-error
