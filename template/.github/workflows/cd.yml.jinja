@@ -14,7 +14,7 @@ jobs:
     # Specifying a GitHub environment is optional, but strongly encouraged
     environment:
       name: publish
-      url: https://pypi.org/project/{{github_repo_name}}/${{ github.ref_name }}
+      url: https://pypi.org/project/{{github_repo_name}}/{% raw %}${{ github.ref_name }}{% endraw %}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -38,5 +38,5 @@ jobs:
         run: uv publish --quiet --trusted-publishing always
       - name: Attach Build Artifacts to GitHub Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ github.ref_name }} ./dist/* --clobber
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+        run: gh release upload {% raw %}${{ github.ref_name }}{% endraw %} ./dist/* --clobber
