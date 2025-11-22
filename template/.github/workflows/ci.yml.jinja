@@ -12,24 +12,24 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
-    name: Run Tests on ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
+    name: Run Tests on {% raw %}${{ matrix.os }}{% endraw %}
     timeout-minutes: 10
     steps:
       - name: System Info
         shell: bash
         run: |
-          if [[ ${{ matrix.os }} == "ubuntu-latest" ]]; then
+          if [[ {% raw %}${{ matrix.os }}{% endraw %} == "ubuntu-latest" ]]; then
               echo "The system is Linux."
               uname -a || true
               lsb_release -a || true
               gcc --version || true
-          elif [[ ${{ matrix.os }} == "macos-latest" ]]; then
+          elif [[ {% raw %}${{ matrix.os }}{% endraw %} == "macos-latest" ]]; then
               echo "The system is macOS."
               sw_vers || true
               uname -a || true
               gcc --version || true
-          elif [[ ${{ matrix.os }} == "windows-latest" ]]; then
+          elif [[ {% raw %}${{ matrix.os }}{% endraw %} == "windows-latest" ]]; then
               echo "The system is Windows (using a Unix-like environment)."
               systeminfo || true
           else
