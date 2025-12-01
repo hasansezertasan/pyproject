@@ -23,6 +23,16 @@ This is an Opinionated GitHub Repository Template with the following:
 
 ## Usage
 
+### Getting Started
+
+- Click the "Use this template" button on GitHub to create a new repository from this template.
+- Clone your new repository to your local machine.
+- Run the following command to initialize the project with Copier:
+
+```sh
+copier copy . .
+```
+
 ### Customizing
 
 - [ ] Go ahead and update the [pyproject.toml](pyproject.toml) with your own project details. Make sure you have completed all TODOs.

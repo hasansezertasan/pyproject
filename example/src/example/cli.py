@@ -8,21 +8,21 @@ from importlib.metadata import Distribution
 
 import typer
 
-from {{github_repo_name}}.config import PROJECT_NAME
-from {{github_repo_name}}.logging_setup import logger
+from example.config import PROJECT_NAME
+from example.logging_setup import logger
 
 app = typer.Typer(
-    name="{{github_repo_name}}",
+    name="example",
     no_args_is_help=True,
 )
 
 
 @app.command(name="version")
 def show_version() -> None:
-    """Show the current version number of {{github_repo_name}}.
+    """Show the current version number of example.
 
     Show the version number:
-        {{github_repo_name}} version
+        example version
 
     Example output:
         0.1.0
@@ -35,10 +35,10 @@ def show_version() -> None:
 
 @app.command()
 def info() -> None:
-    """Display information about the {{github_repo_name}} application.
+    """Display information about the example application.
 
     Show application information:
-        {{github_repo_name}} info
+        example info
 
     Example output:
         Application Version: 0.1.0

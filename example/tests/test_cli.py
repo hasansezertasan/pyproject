@@ -1,19 +1,19 @@
-"""Test cases for the main application commands using Typer's CLI runner."""
+"""Test cases for the Typer CLI application commands."""
 
 from typer.testing import CliRunner
 
-from {{github_repo_name}}.cli import app
+from example.cli import app
 
 runner = CliRunner()
 
 
 def test_version() -> None:
-    """Test the `version` command of the application.
+    """Test the `version` command of the CLI application.
 
     This test checks if the `version` command runs without any errors.
 
     Scenario:
-        - Run the `version` command of the application.
+        - Run the `version` command of the CLI application.
 
     Expected Result:
         - The command should execute successfully and return the application version.
@@ -37,12 +37,12 @@ def test_version() -> None:
 
 
 def test_info() -> None:
-    """Test the `info` command of the application.
+    """Test the `info` command of the CLI application.
 
     This test checks if the `info` command runs without any errors.
 
     Scenario:
-        - Run the `info` command of the application.
+        - Run the `info` command of the CLI application.
 
     Expected Result:
         - The command should execute successfully and return the application

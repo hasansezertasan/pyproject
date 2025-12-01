@@ -1,18 +1,18 @@
 [project]
-name = "{{github_repo_name}}"
-description = "{{short_description}}"
+name = "example"
+description = "A Python project example."
 license = "MIT"
 readme = "README.md"
-# TODO @{{github_user}}: Update the author name and email
-authors = [{ name = "{{author_full_name}}", email = "{{author_email}}" }]
-# TODO @{{github_user}}: Update the maintainer name and email
+# TODO @hasansezertasan: Update the author name and email
+authors = [{ name = "Hasan Sezer Taşan", email = "hasansezertasan@gmail.com" }]
+# TODO @hasansezertasan: Update the maintainer name and email
 maintainers = [
-  { name = "{{author_full_name}}", email = "{{author_email}}" },
+  { name = "Hasan Sezer Taşan", email = "hasansezertasan@gmail.com" },
 ]
 dynamic = ["version"]
-# TODO @{{github_user}}: Update the keywords
+# TODO @hasansezertasan: Update the keywords
 keywords = ["command-line", "cli", "package", "metadata", "pypi", "python"]
-# TODO @{{github_user}}: Fill in classifiers
+# TODO @hasansezertasan: Fill in classifiers
 classifiers = [
   "Development Status :: 1 - Planning",
   "Environment :: Console",
@@ -47,21 +47,21 @@ cli = ["typer>=0.20.0"]
 
 
 [project.urls]
-changelog = "https://github.com/{{github_user}}/{{github_repo_name}}/blob/main/CHANGELOG.md"
-documentation = "https://github.com/{{github_user}}/{{github_repo_name}}#readme"
-homepage = "https://github.com/{{github_user}}/{{github_repo_name}}"
-issues = "https://github.com/{{github_user}}/{{github_repo_name}}/issues"
-releasenotes = "https://github.com/{{github_user}}/{{github_repo_name}}/releases"
-source = "https://github.com/{{github_user}}/{{github_repo_name}}.git"
+changelog = "https://github.com/hasansezertasan/example/blob/main/CHANGELOG.md"
+documentation = "https://github.com/hasansezertasan/example#readme"
+homepage = "https://github.com/hasansezertasan/example"
+issues = "https://github.com/hasansezertasan/example/issues"
+releasenotes = "https://github.com/hasansezertasan/example/releases"
+source = "https://github.com/hasansezertasan/example.git"
 
 
 [project.scripts]
-{{github_repo_name}} = "{{github_repo_name}}.cli:app"
+example = "example.cli:app"
 
 
 [dependency-groups]
 dev = [
-  "{{github_repo_name}}[cli]",
+  "example[cli]",
   "tox==4.31.0",
   "tox-uv==1.29.0",
   { include-group = "check" },
@@ -118,14 +118,14 @@ fallback-version = "0.1.0"
 
 
 [tool.hatch.build]
-hooks.vcs.version-file = "src/{{github_repo_name}}/_version.py"
+hooks.vcs.version-file = "src/example/_version.py"
 
 
 [tool.hatch.version.raw-options]
 version_scheme = "only-version"
 local_scheme = "no-local-version"
 
-# TODO @{{github_user}}: Commitizen should be optional.
+# TODO @hasansezertasan: Commitizen should be optional.
 [tool.commitizen]
 name = "cz_conventional_commits"
 version_provider = "scm"
@@ -141,15 +141,15 @@ testpaths = ["tests"]
 
 
 [tool.coverage.run]
-source_pkgs = ["{{github_repo_name}}", "tests"]
+source_pkgs = ["example", "tests"]
 branch = true
 parallel = true
-omit = ["src/{{github_repo_name}}/_version.py"]
+omit = ["src/example/_version.py"]
 
 
 [tool.coverage.paths]
-{{github_repo_name}} = ["src/{{github_repo_name}}", "*/{{github_repo_name}}/src/{{github_repo_name}}"]
-tests = ["tests", "*/{{github_repo_name}}/tests"]
+example = ["src/example", "*/example/src/example"]
+tests = ["tests", "*/example/tests"]
 
 
 [tool.coverage.report]
@@ -199,9 +199,9 @@ preview = true
 select = ["ALL"]
 
 
-# TODO @{{github_user}}: Update the author name and email
+# TODO @hasansezertasan: Update the author name and email
 [tool.ruff.lint.flake8-copyright]
-author = "{{author_full_name}} <{{author_email}}>"
+author = "Hasan Sezer Taşan <hasansezertasan@gmail.com>"
 
 
 [tool.ruff.lint.flake8-tidy-imports]
@@ -240,7 +240,7 @@ strict = true
 
 
 [tool.pyright]
-include = ["src/{{github_repo_name}}"]
+include = ["src/example"]
 
 
 [tool.ty.src]
@@ -261,7 +261,7 @@ python-version = "3.10"
 project-includes = ["src"]
 
 
-# TODO @{{github_user}}: poethepoet should be optional.
+# TODO @hasansezertasan: poethepoet should be optional.
 [tool.poe]
 executor.type = "uv"
 
@@ -333,7 +333,7 @@ description = "Run Linters and Formatters"
 allowlist_externals = ["actionlint", "yamlfmt"]
 
 
-# TODO @{{github_user}}: This should be available if the project is a CLI project.
+# TODO @hasansezertasan: This should be available if the project is a CLI project.
 [tool.tox.env.run]
-commands = [["{{github_repo_name}}", "version", { replace = "posargs", extend = true }]]
+commands = [["example", "version", { replace = "posargs", extend = true }]]
 description = "Run the CLI application."
