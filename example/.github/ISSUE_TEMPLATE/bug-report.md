@@ -5,8 +5,6 @@ title: 'Bug: '
 labels: bug
 assignees: 'hasansezertasan'
 ---
-# Bug Report
-
 ## Bug Description
 
 <!--

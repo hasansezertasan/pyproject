@@ -60,6 +60,10 @@ source = "https://github.com/{{github_user}}/{{github_repo_name}}.git"
 {{github_repo_name}} = "{{github_repo_name}}.cli:app"
 
 
+[project.gui-scripts]
+{{github_repo_name}}-gui = "{{github_repo_name}}.gui:main"
+
+
 [dependency-groups]
 dev = [
   "{{github_repo_name}}[cli,web]",
