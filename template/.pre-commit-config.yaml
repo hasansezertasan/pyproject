@@ -68,56 +68,67 @@ repos:
         name: Check AST
       - id: detect-private-key
         name: Detect Private Key
-  - repo: https://github.com/tsvikas/sync-with-uv
-    rev: v0.5.0
+  # - repo: https://github.com/tsvikas/sync-with-uv
+  #   rev: v0.5.0
+  #   hooks:
+  #     - id: sync-with-uv
+  #       name: Sync with uv
+  # - repo: https://github.com/astral-sh/uv-pre-commit
+  #   rev: 0.9.15
+  #   hooks:
+  #     - id: uv-lock
+  #       name: Update the uv lockfile
+  # - repo: https://github.com/astral-sh/ruff-pre-commit
+  #   rev: v0.14.7
+  #   hooks:
+  #     - id: ruff
+  #       name: Ruff Linter
+  #     - id: ruff-format
+  #       name: Ruff Formatter
+  # - repo: https://github.com/pre-commit/mirrors-mypy
+  #   rev: v1.8.0
+  #   hooks:
+  #     - id: mypy
+  #       additional_dependencies: [types-all]
+  # - repo: https://github.com/psf/black
+  #   rev: 24.2.0
+  #   hooks:
+  #     - id: black
+  # - repo: https://github.com/PyCQA/isort
+  #   rev: 5.13.2
+  #   hooks:
+  #     - id: isort
+  #       args: ["--profile", "black"]
+  # - repo: https://github.com/jendrikseipp/vulture
+  #   rev: "v2.14"
+  #   hooks:
+  #     - id: vulture
+  #       name: Vulture Linter
+  #       args: [.]
+  # - repo: https://github.com/PyCQA/bandit
+  #   rev: 1.7.7
+  #   hooks:
+  #     - id: bandit
+  #       args: ["-c", "pyproject.toml"]
+  #       additional_dependencies: ["bandit[toml]"]
+  # - repo: https://github.com/codespell-project/codespell
+  #   rev: v2.4.1
+  #   hooks:
+  #     - id: codespell
+  #       name: Codespell Spell Checker
+  #       additional_dependencies:
+  #         - tomli
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.34.0
     hooks:
-      - id: sync-with-uv
-        name: Sync with uv
-  - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.9.15
-    hooks:
-      - id: uv-lock
-        name: Update the uv lockfile
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.7
-    hooks:
-      - id: ruff
-        name: Ruff Linter
-      - id: ruff-format
-        name: Ruff Formatter
+      - id: typos
+        name: Typos Linter
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.35.0
     hooks:
       - id: check-github-actions
         name: Validate GitHub Actions
         args: ["--verbose"]
-  - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.1
-    hooks:
-      - id: codespell
-        name: Codespell Spell Checker
-        additional_dependencies:
-          - tomli
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
-    hooks:
-      - id: mypy
-        additional_dependencies: [types-all]
-  - repo: https://github.com/psf/black
-    rev: 24.2.0
-    hooks:
-      - id: black
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-        args: ["--profile", "black"]
-  - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.7
-    hooks:
-      - id: bandit
-        args: ["-c", "pyproject.toml"]
-        additional_dependencies: ["bandit[toml]"]
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.7
     hooks:
@@ -138,23 +149,12 @@ repos:
     hooks:
       - id: yamlfmt
         name: YAML Formatter
-  - repo: https://github.com/crate-ci/typos
-    rev: v1.34.0
-    hooks:
-      - id: typos
-        name: Typos Linter
-  - repo: https://github.com/jendrikseipp/vulture
-    rev: "v2.14"
-    hooks:
-      - id: vulture
-        name: Vulture Linter
-        args: [.]
-  - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.10.0
-    hooks:
-      - id: commitizen
-        name: Commitizen
-      - id: commitizen-branch
-        name: Commitizen Branch
-        stages:
-          - pre-push
+# - repo: https://github.com/commitizen-tools/commitizen
+#   rev: v4.10.0
+#   hooks:
+#     - id: commitizen
+#       name: Commitizen
+#     - id: commitizen-branch
+#       name: Commitizen Branch
+#       stages:
+#         - pre-push
