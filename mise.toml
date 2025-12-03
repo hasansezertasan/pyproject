@@ -13,6 +13,6 @@ yamlfmt = "latest"
 yamllint = "latest"
 
 
-[tasks.test]
-description = "Create a temporary project from the template."
+[tasks.example]
+description = "Generate an example project from the template"
 run = "copier copy --trust --force --vcs-ref=HEAD --data-file=.example-input.yml . example"

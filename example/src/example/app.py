@@ -17,10 +17,10 @@ app = FastAPI(title="example")
 
 @app.get("/version", response_class=PlainTextResponse)
 def get_version() -> str:
-    """Return the current version number of example.
+    """Return the current version number of the project.
 
-    Example response body:
-        0.1.0
+    Returns:
+        str: The version number as a plain text string.
     """
     distribution = Distribution.from_name(PROJECT_NAME)
     logger.info("HTTP GET `/version` called.")
@@ -30,7 +30,11 @@ def get_version() -> str:
 
 @app.get("/info")
 def get_info() -> JSONResponse:
-    """Return basic runtime information about the application."""
+    """Return basic runtime information about the project.
+
+    Returns:
+        JSONResponse: A JSON response containing project and environment info.
+    """
     distribution = Distribution.from_name(PROJECT_NAME)
     logger.info("HTTP GET `/info` called.")
     python_version = platform.python_version()

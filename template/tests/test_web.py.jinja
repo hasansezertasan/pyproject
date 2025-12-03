@@ -42,7 +42,9 @@ def test_version_endpoint() -> None:
 
     distribution = Distribution.from_name(PROJECT_NAME)
     expected_version = distribution.version
-    assert response.text == expected_version, f"Expected {expected_version}, got {response.text}"
+    assert response.text == expected_version, (
+        f"Expected {expected_version}, got {response.text}"
+    )
 
 
 def test_info_endpoint() -> None:
@@ -122,7 +124,9 @@ def test_info_endpoint_structure() -> None:
     }
     actual_keys = set(data.keys())
 
-    assert actual_keys == expected_keys, f"Expected keys {expected_keys}, got {actual_keys}"
+    assert actual_keys == expected_keys, (
+        f"Expected keys {expected_keys}, got {actual_keys}"
+    )
 
 
 def test_openapi_docs_available() -> None:
@@ -148,4 +152,6 @@ def test_openapi_docs_available() -> None:
     assert docs_response.status_code == 200, "OpenAPI docs (/docs) should be available"
 
     openapi_response = client.get("/openapi.json")
-    assert openapi_response.status_code == 200, "OpenAPI schema (/openapi.json) should be available"
+    assert openapi_response.status_code == 200, (
+        "OpenAPI schema (/openapi.json) should be available"
+    )

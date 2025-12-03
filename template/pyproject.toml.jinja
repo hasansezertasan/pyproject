@@ -44,6 +44,7 @@ dependencies = []
 
 [project.optional-dependencies]
 cli = ["typer>=0.20.0"]
+web = ["fastapi[all]==0.123.5"]
 
 
 [project.urls]
@@ -64,20 +65,20 @@ dev = [
   "{{github_repo_name}}[cli]",
   "tox==4.31.0",
   "tox-uv==1.29.0",
-  { include-group = "check" },
+  { include-group = "style" },
   { include-group = "test" },
 ]
-check = [
-  "mypy==1.18.2",
-  "pyright==1.1.406",
-  "ty==0.0.1a27",
-  "pyrefly==0.38.1",
-  "ruff==0.14.6",
+style = [
+  "mypy==1.19.0",
+  "pyrefly==0.44.0",
+  "pyright==1.1.407",
+  "ruff==0.14.7",
+  "slotscheck==0.19.1",
   "taplo==0.9.3",
-  "typos==1.38.1",
+  "ty==0.0.1a29",
+  "typos==1.40.0",
   "validate-pyproject[all]==0.24.1",
   "vulture==2.14",
-  "slotscheck==0.19.1",
 ]
 test = [
   "coverage-enable-subprocess==1.0",
@@ -90,11 +91,11 @@ test = [
 ]
 docs = []
 tool = [
-  "pre-commit==4.3.0",
-  "poethepoet==0.37.0",
-  "commitizen==4.9.1",
-  "copier==9.10.3",
+  "commitizen==4.10.0",
   "cookiecutter==2.6.0",
+  "copier==9.11.0",
+  "poethepoet==0.38.0",
+  "pre-commit==4.5.0",
 ]
 
 
@@ -161,7 +162,8 @@ exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
 
 
 [tool.vulture]
-ignore_decorators = ["@app.command"]
+ignore_decorators = ["@app.command", "@app.get"]
+ignore_names = ["CONFIG_FILE_PATH"]
 min_confidence = 60
 paths = ["src", "tests"]
 
@@ -221,7 +223,7 @@ convention = "pep257"
 
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*.py" = ['S101']
+"tests/*.py" = ["S101", "PLR2004"]
 
 
 [tool.ruff.lint.pyupgrade]
@@ -301,11 +303,11 @@ constrain_package_deps = true
 dependency_groups = ["test"]
 description = "Run the tests under {base_python}"
 env_tmp_dir = "{toxworkdir}/tmp/{envname}"
+extras = ["cli", "web"]
 package = "wheel"
 runner = "uv-venv-runner"
 use_frozen_constraints = true
 wheel_build_env = ".pkg"
-extras = ["cli"]
 
 
 [tool.tox.env.style]
@@ -319,7 +321,7 @@ commands = [
   ["ty", "check"],
   ["pyrefly", "check"],
   ["vulture"],
-  ["slotscheck", "src"],
+  ["python", "-m", "slotscheck", "src"],
   ["taplo", "lint"],
   ["taplo", "format"],
   ["validate-pyproject", "pyproject.toml"],
@@ -328,8 +330,8 @@ commands = [
   # ["yamlfmt", "."],
 ]
 runner = "uv-venv-runner"
-dependency_groups = ["lint"]
-description = "Run Linters and Formatters"
+dependency_groups = ["style"]
+description = "Run Checkers, Linters and Formatters"
 allowlist_externals = ["actionlint", "yamlfmt"]
 
 

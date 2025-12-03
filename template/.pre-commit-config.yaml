@@ -37,7 +37,6 @@ default_language_version:
   python: python3.10
 default_stages: [pre-commit, pre-push]
 repos:
-  # https://github.com/pre-commit/pre-commit-hooks#pre-commit-hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -59,6 +58,9 @@ repos:
         name: Trailing whitespace
       - id: debug-statements
         name: Debug Statements
+      - id: check-merge-conflict
+        name: Check Merge Conflict
+        args: [--assume-in-merge]
   - repo: https://github.com/tsvikas/sync-with-uv
     rev: v0.5.0
     hooks:
@@ -87,7 +89,7 @@ repos:
         stages:
           - push
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.9.13
+    rev: 0.9.15
     hooks:
       - id: uv-lock
         name: Update the uv lockfile
