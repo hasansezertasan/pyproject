@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy Docs
     permissions:
-      contents: write # IMPORTANT: Mandatory for GitHub Pages
+      contents: write  # IMPORTANT: Mandatory for GitHub Pages
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
