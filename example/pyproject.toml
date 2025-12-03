@@ -62,7 +62,7 @@ example = "example.cli:app"
 
 [dependency-groups]
 dev = [
-  "example[cli]",
+  "example[cli,web]",
   "tox==4.31.0",
   "tox-uv==1.29.0",
   { include-group = "style" },

@@ -62,7 +62,7 @@ source = "https://github.com/{{github_user}}/{{github_repo_name}}.git"
 
 [dependency-groups]
 dev = [
-  "{{github_repo_name}}[cli]",
+  "{{github_repo_name}}[cli,web]",
   "tox==4.31.0",
   "tox-uv==1.29.0",
   { include-group = "style" },
