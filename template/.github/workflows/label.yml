@@ -9,5 +9,5 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    - name: "Label Pull Requests"
-      uses: actions/labeler@v6
+      - name: "Label Pull Requests"
+        uses: actions/labeler@v6

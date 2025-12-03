@@ -60,6 +60,10 @@ source = "https://github.com/hasansezertasan/example.git"
 example = "example.cli:app"
 
 
+[project.gui-scripts]
+example-gui = "example.gui:main"
+
+
 [dependency-groups]
 dev = [
   "example[cli,web]",

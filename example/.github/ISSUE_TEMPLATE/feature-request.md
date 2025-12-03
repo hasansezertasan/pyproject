@@ -5,8 +5,6 @@ title: 'Enhancement: '
 labels: enhancement
 assignees: 'hasansezertasan'
 ---
-# Feature Request
-
 ## Feature Description
 
 <!--
