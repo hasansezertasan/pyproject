@@ -44,7 +44,7 @@ dependencies = []
 
 [project.optional-dependencies]
 cli = ["typer>=0.20.0"]
-web = ["fastapi[all]==0.123.5"]
+web = ["fastapi[all]>=0.123.5"]
 
 
 [project.urls]
@@ -100,8 +100,8 @@ tool = [
   "poethepoet==0.38.0",
 ]
 pre-commit = [
-    "pre-commit==4.5.0",
     "pre-commit-uv==4.2.0",
+    "pre-commit==4.5.0",
 ]
 
 
@@ -134,12 +134,12 @@ local_scheme = "no-local-version"
 
 # TODO @hasansezertasan: Commitizen should be optional.
 [tool.commitizen]
+major_version_zero = true
 name = "cz_conventional_commits"
-version_provider = "scm"
-version_scheme = "pep404"
 tag_format = "$version"
 update_changelog_on_bump = true
-major_version_zero = true
+version_provider = "scm"
+version_scheme = "pep404"
 
 
 [tool.pytest.ini_options]
@@ -148,10 +148,10 @@ testpaths = ["tests"]
 
 
 [tool.coverage.run]
-source_pkgs = ["example", "tests"]
 branch = true
-parallel = true
 omit = ["src/example/_version.py"]
+parallel = true
+source_pkgs = ["example", "tests"]
 
 
 [tool.coverage.paths]
@@ -377,9 +377,9 @@ commands = [
     "actionlint",
   ],
 ]
-runner = "uv-venv-runner"
 dependency_groups = ["style"]
 description = "Run Checkers, Linters and Formatters"
+runner = "uv-venv-runner"
 
 
 [tool.tox.env.pre-commit]
