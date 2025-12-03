@@ -21,6 +21,8 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Runner Stage
 FROM python:3.10-slim-bookworm as runner
 
+# Create app user and group for file ownership
+RUN groupadd -r app && useradd -r -g app app
 # Copy the application from the builder
 COPY --from=builder --chown=app:app /app /app
 
