@@ -28,4 +28,4 @@ jobs:
         if: steps.setup-uv.outputs.cache-hit == 'true'
         run: echo "Cache was restored"
       - name: Build and Deploy Docs
-        run: uv run --only-group docs mkdocs gh-deploy --clean --site-dir site --dry-run
+        run: uv run --only-group docs mkdocs gh-deploy --clean
