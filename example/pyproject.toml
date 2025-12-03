@@ -111,12 +111,12 @@ build-backend = "hatchling.build"
 
 
 [tool.uv]
+add-bounds = "exact"
 cache-keys = [
   { file = "pyproject.toml" },
   { git = { commit = true, tags = true } },
 ]
 trusted-publishing = "always"
-add-bounds = "exact"
 
 
 [tool.hatch.version]
