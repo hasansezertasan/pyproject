@@ -3,6 +3,12 @@ revision = 3
 requires-python = ">=3.10"
 
 [[package]]
+name = "actionlint-py"
+version = "1.7.9.24"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d5/d9/1464616c5b65d88892944e406318a2efe00eb30cafc911c57af2967a113d/actionlint_py-1.7.9.24.tar.gz", hash = "sha256:a11b2fdafc28ddf1ed875ab6e50b6c1aafa90a1421de4e03634cdf8890519a25", size = 12047, upload-time = "2025-11-22T16:51:16.484Z" }
+
+[[package]]
 name = "annotated-doc"
 version = "0.0.4"
 source = { registry = "https://pypi.org/simple" }
@@ -476,6 +482,7 @@ web = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "actionlint-py" },
     { name = "coverage", extra = ["toml"] },
     { name = "coverage-enable-subprocess" },
     { name = "example", extra = ["cli"] },
@@ -498,6 +505,7 @@ dev = [
     { name = "vulture" },
 ]
 style = [
+    { name = "actionlint-py" },
     { name = "mypy" },
     { name = "pyrefly" },
     { name = "pyright" },
@@ -535,6 +543,7 @@ provides-extras = ["cli", "web"]
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "actionlint-py", specifier = "==1.7.9.24" },
     { name = "coverage", extras = ["toml"], specifier = "==7.11.0" },
     { name = "coverage-enable-subprocess", specifier = "==1.0" },
     { name = "example", extras = ["cli"] },
@@ -558,6 +567,7 @@ dev = [
 ]
 docs = []
 style = [
+    { name = "actionlint-py", specifier = "==1.7.9.24" },
     { name = "mypy", specifier = "==1.19.0" },
     { name = "pyrefly", specifier = "==0.44.0" },
     { name = "pyright", specifier = "==1.1.407" },

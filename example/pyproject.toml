@@ -69,6 +69,7 @@ dev = [
   { include-group = "test" },
 ]
 style = [
+  "actionlint-py==1.7.9.24",
   "mypy==1.19.0",
   "pyrefly==0.44.0",
   "pyright==1.1.407",
@@ -326,13 +327,13 @@ commands = [
   ["taplo", "format"],
   ["validate-pyproject", "pyproject.toml"],
   ["typos", "--diff"],
-  # ["actionlint"],
+  ["actionlint"],
   # ["yamlfmt", "."],
 ]
 runner = "uv-venv-runner"
 dependency_groups = ["style"]
 description = "Run Checkers, Linters and Formatters"
-allowlist_externals = ["actionlint", "yamlfmt"]
+allowlist_externals = ["yamlfmt"]
 
 
 # TODO @hasansezertasan: This should be available if the project is a CLI project.
