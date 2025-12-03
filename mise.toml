@@ -1,2 +1,18 @@
 [tools]
+action-validator = "latest"
+actionlint = "latest"
+cookiecutter = "latest"
 copier = "latest"
+editorconfig-checker = "latest"
+ghalint = "latest"
+pre-commit = "latest"
+taplo = "latest"
+typos = "latest"
+uv = "latest"
+yamlfmt = "latest"
+yamllint = "latest"
+
+
+[tasks.example]
+description = "Generate an example project from the template"
+run = "copier copy --trust --force --vcs-ref=HEAD --data-file=.example-input.yml . example"
