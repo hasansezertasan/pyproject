@@ -27,12 +27,13 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "charliermarsh.ruff",
         "GitHub.copilot",
+        "charliermarsh.ruff",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "hverlin.mise-vscode",
         "ms-azuretools.vscode-docker",
         "ms-python.black-formatter",
-        "eamodio.gitlens",
-        "donjayamanne.githistory",
         "ms-python.debugpy"
       ]
     }

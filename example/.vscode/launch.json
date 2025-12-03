@@ -5,7 +5,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python Debugger",
+      "name": "Python: Web App",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "justMyCode": false,
+      "args": [
+        "example.app:app",
+        "--reload",
+        "--log-level=debug",
+        "--port=80"
+      ]
+    },
+    {
+      "name": "Python: CLI",
       "type": "debugpy",
       "request": "launch",
       "justMyCode": true,
