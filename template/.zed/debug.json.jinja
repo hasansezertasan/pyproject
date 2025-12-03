@@ -9,7 +9,7 @@
     "justMyCode": false,
     "cwd": "$ZED_WORKTREE_ROOT",
     "args": [
-      "example.app:app",
+      "{{github_repo_name}}.app:app",
       "--reload",
       "--log-level=debug",
       "--port=80"
@@ -21,6 +21,6 @@
     "request": "launch",
     "module": "uv",
     "justMyCode": false,
-    "args": ["run", "example"]
+    "args": ["run", "{{github_repo_name}}"]
   }
 ]
