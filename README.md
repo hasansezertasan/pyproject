@@ -1,75 +1,67 @@
 # copier-pyproject
 
-This is an Opinionated GitHub Repository Template with the following:
+Copier template for a modern, typed Python package/CLI with `uv`, `hatch`, `tox`, and GitHub automation baked in.
 
-- `uv` package manager support.
-- Build with `hatchling`, dynamic versioning through GitHub Release Tags.
-- Tests setup with `pytest` and `tox`.
-- Linting and Formatting with `ruff`.
-- Type checking with `mypy`.
-- Logging setup.
-- Configuration setup.
-- Typer CLI
-- `pre-commit` configuration.
-- Dev container configuration.
-- Generic `.gitignore` setup.
-- GitHub Actions:
-  - CI: Type Checking, Linting, Formatting, Testing, etc.
-  - CD: PyPI Trusted Host Publishing and GitHub Releases.
-- Release Drafter.
-- PR Title Checker.
-- Issue and Pull Request Templates and Configurations.
-- VSCode Debugging Configuration.
+## What this template includes
 
-## Usage
+- uv-first workflow with dependency groups (dev, style, test, docs, tool, pre-commit) and tox-uv runners across Python 3.10–3.14; builds via `hatchling`/`hatch-vcs` with versions from Git tags.
+- Ready-to-run Typer CLI entrypoint, FastAPI app stub, logging/config modules, type hints, and a `py.typed` marker plus CLI/web tests.
+- QA stack: pytest with coverage/xdist/reruns; ruff, mypy, pyright, ty, pyrefly, vulture, slotscheck, taplo, validate-pyproject, typos, actionlint.
+- Docs and site: MkDocs scaffold (`docs/index.md`) with GitHub Pages deploy workflow.
+- Automation and hygiene: CI/CD workflows (matrix tests, trusted-publishing to PyPI, gh-pages), release drafter, PR title linting, issue/PR templates, Renovate config, Commitizen, pre-commit (with pre-commit-uv), devcontainer, VS Code launch config, gitignore, FUNDING, and LICENSE.
+- README template with badges, download/analysis links, and development commands for the generated project.
 
-### Getting Started
+## Inputs
 
-- Click the "Use this template" button on GitHub to create a new repository from this template.
-- Clone your new repository to your local machine.
-- Run the following command to initialize the project with Copier:
+Copier will prompt for:
 
-```sh
-copier copy . .
-```
+- `github_user`
+- `github_repo_name` (lowercase letters/digits/dashes, starts with a letter)
+- `author_full_name`
+- `author_email`
+- `short_description`
 
-### Customizing
+## Scaffold a project
 
-- [ ] Go ahead and update the [pyproject.toml](pyproject.toml) with your own project details. Make sure you have completed all TODOs.
-- [ ] Double check the [.gitignore](.gitignore) file and don't stage any secrets!
-- [ ] Go ahead and update your repository settings as you wish.
+1. Install Copier and uv (e.g., `uvx copier`).
+2. Run `copier copy gh:hasansezertasan/copier-pyproject <destination>` (or `copier copy . <destination>` from a local clone).
+3. Optionally seed answers with `.example-input.yml` using `--data-file .example-input.yml --defaults`.
+4. Open the generated README (rendered from `template/README.md.jinja`) and clear the `TODO @...` markers in `README.md`, `pyproject.toml`, docs, and workflows.
 
-### PyPI Integration
+## Generated project quickstart
 
-How to integrate with PyPI with GitHub Actions?
+- Install dependencies: `uv sync`
+- Style gate: `uv run --locked tox run -e style`
+- Full test suite: `uv run --locked tox run`
+- Run the CLI: `uv run --locked <repo-name> version`
+- Run the FastAPI app: `uv run --locked fastapi dev <repo-name>.app:app`
+- Serve docs locally: `uv run --only-group docs mkdocs serve` (deploys via GitHub Pages on release)
 
-1. Go to [Trusted Publisher Management](https://pypi.org/manage/account/publishing//).
-1. Scroll down to the "Add a new pending publisher" section.
-1. Select "GitHub".
-1. Enter the name of your package in the "PyPI Project Name" field.
-1. Enter the username of your GitHub account in the "Owner" field.
-1. Enter the name of your repository in the "Repository name" field.
-1. Enter the workflow name of the [CD](.github/workflows/cd.yml) workflow in the "Workflow name" field. Just type `cd.yml` if you haven't changed the workflow name.
-1. Enter the environment name of the [CD](.github/workflows/cd.yml) workflow in the "Environment name" field. Just type `publish` if you haven't changed the environment name.
-1. Click the "Add" button.
+`example/README.md` shows the rendered README produced from `.example-input.yml`.
 
-### Release
+## Release automation
 
-How to release a new version of the project?
+Publishing a GitHub release triggers `.github/workflows/cd.yml.jinja` to build with uv and push to PyPI using trusted publishing. Docs deploy from releases via `.github/workflows/gh-pages.yml`, and CI runs on macOS/Linux/Windows via `.github/workflows/ci.yml.jinja`.
 
-1. Create a new release draft on GitHub.
-1. Update your [CHANGELOG.md](CHANGELOG.md) with the new version.
-1. Convert the release draft to a release.
-1. The release will trigger the [CD](.github/workflows/cd.yml) workflow:
-    1. The workflow will build the project and publish it to PyPI.
-    1. The workflow will also attach the build artifacts to the release.
+### PyPI Trusted Publishing setup
 
-### Sayonara
+Enable PyPI once per project for `.github/workflows/cd.yml`:
 
-```sh
-# Remove this file and copy the actual README
-rm README.md && cp README_ACTUAL.md README.md
-```
+1. Open [Trusted Publisher Management](https://pypi.org/manage/account/publishing/).
+2. Under "Add a new pending publisher", pick "GitHub".
+3. Set `PyPI Project Name` to your package name.
+4. Set `Owner` to your GitHub username.
+5. Set `Repository name` to your repo name.
+6. Set `Workflow name` to `cd.yml` (or your workflow filename).
+7. Set `Environment name` to `publish` (or your chosen env).
+8. Save.
+
+### Release steps
+
+1. Draft a GitHub Release (tag = version).
+2. Update `CHANGELOG.md` with the new version details.
+3. Publish the release.
+4. `cd.yml` will build the wheel/sdist with uv, publish to PyPI via trusted publishing, and upload artifacts to the GitHub Release.
 
 ## Author
 

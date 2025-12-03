@@ -386,15 +386,18 @@ runner = "uv-venv-runner"
 commands = [["pre-commit", "run", "--all-files"]]
 dependency_groups = ["pre-commit"]
 description = "Run pre-commit hooks"
+runner = "uv-venv-runner"
 
 
 [tool.tox.env.docs]
 commands = [["mkdocs", "build", "--clean"]]
 dependency_groups = ["docs"]
 description = "Build Docs"
+runner = "uv-venv-runner"
 
 
 # TODO @{{github_user}}: This should be available if the project is a CLI project.
 [tool.tox.env.run]
 commands = [["{{github_repo_name}}", "version", { replace = "posargs", extend = true }]]
 description = "Run the CLI application."
+runner = "uv-venv-runner"
